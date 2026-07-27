@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "prepare": "panda codegen"
+    "prepare": "panda codegen",
+    "build": "echo 'Using pre-built dist'"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^2.0.2",
