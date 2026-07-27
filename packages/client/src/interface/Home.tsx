@@ -1,0 +1,339 @@
+import { Match, Show, Switch } from "solid-js";
+
+import { Trans } from "@lingui-solid/solid/macro";
+import { PublicChannelInvite } from "stoat.js";
+import { css, cva } from "styled-system/css";
+import { styled } from "styled-system/jsx";
+
+import { IS_DEV, useClient } from "@revolt/client";
+import { CONFIGURATION } from "@revolt/common";
+import { useModals } from "@revolt/modal";
+import { useNavigate } from "@revolt/routing";
+import {
+  Button,
+  CategoryButton,
+  Column,
+  Header,
+  iconSize,
+  main,
+} from "@revolt/ui";
+
+import MdAddCircle from "@material-design-icons/svg/filled/add_circle.svg?component-solid";
+import MdExplore from "@material-design-icons/svg/filled/explore.svg?component-solid";
+import MdGroups3 from "@material-design-icons/svg/filled/groups_3.svg?component-solid";
+import MdHome from "@material-design-icons/svg/filled/home.svg?component-solid";
+import MdPayments from "@material-design-icons/svg/filled/payments.svg?component-solid";
+import MdRateReview from "@material-design-icons/svg/filled/rate_review.svg?component-solid";
+import MdRocket from "@material-design-icons/svg/filled/rocket.svg?component-solid";
+import MdSettings from "@material-design-icons/svg/filled/settings.svg?component-solid";
+
+import Wordmark from "../assets/web/wordmark.svg?component-solid";
+import limyrxLogo from "../assets/web/limyrx-logo.png";
+
+import { HeaderIcon } from "./common/CommonHeader";
+
+/**
+ * Base layout of the home page (i.e. the header/background)
+ */
+const Base = styled("div", {
+  base: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+
+    color: "var(--md-sys-color-on-surface)",
+  },
+});
+
+/**
+ * Layout of the content as a whole
+ */
+const content = cva({
+  base: {
+    ...main.raw(),
+
+    padding: "48px 0",
+
+    gap: "32px",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
+
+/**
+ * Layout of the buttons
+ */
+const Buttons = styled("div", {
+  base: {
+    gap: "8px",
+    padding: "8px",
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    borderRadius: "var(--borderRadius-lg)",
+
+    color: "var(--md-sys-color-on-surface-variant)",
+    background: "var(--md-sys-color-surface-variant)",
+  },
+});
+
+/**
+ * Make sure the columns are separated
+ */
+const SeparatedColumn = styled(Column, {
+  base: {
+    justifyContent: "stretch",
+    marginInline: "0.25em",
+    width: "260px",
+    "& > *": {
+      flexGrow: 1,
+    },
+  },
+});
+
+/**
+ * Turbo card
+ */
+const TurboCard = styled("div", {
+  base: {
+    width: "100%",
+    maxWidth: "540px",
+    padding: "24px 28px",
+    borderRadius: "var(--borderRadius-xl)",
+    background:
+      "linear-gradient(135deg, rgba(124,58,237,0.15) 0%, rgba(168,85,247,0.10) 50%, rgba(192,132,252,0.15) 100%)",
+    border: "1px solid rgba(168,85,247,0.25)",
+    cursor: "pointer",
+    transition: "all 0.2s ease",
+    display: "flex",
+    alignItems: "center",
+    gap: "18px",
+    "&:hover": {
+      background:
+        "linear-gradient(135deg, rgba(124,58,237,0.25) 0%, rgba(168,85,247,0.18) 50%, rgba(192,132,252,0.25) 100%)",
+      border: "1px solid rgba(168,85,247,0.45)",
+      transform: "translateY(-2px)",
+      boxShadow: "0 8px 32px rgba(124,58,237,0.2)",
+    },
+  },
+});
+
+const TurboIcon = styled("div", {
+  base: {
+    width: "52px",
+    height: "52px",
+    borderRadius: "var(--borderRadius-lg)",
+    background:
+      "linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexShrink: 0,
+    color: "#FFFFFF",
+    boxShadow: "0 4px 16px rgba(124,58,237,0.35)",
+  },
+});
+
+const TurboText = styled("div", {
+  base: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "4px",
+  },
+});
+
+const TurboTitle = styled("div", {
+  base: {
+    fontSize: "1.1em",
+    fontWeight: "700",
+    color: "#FFFFFF",
+    letterSpacing: "0.02em",
+  },
+});
+
+const TurboDescription = styled("div", {
+  base: {
+    fontSize: "0.85em",
+    color: "var(--md-sys-color-on-surface-variant)",
+    lineHeight: "1.4",
+  },
+});
+
+/**
+ * Home page
+ */
+export function HomePage() {
+  const { openModal } = useModals();
+  const navigate = useNavigate();
+  const client = useClient();
+
+  // check if we're stoat.chat; if so, check if the user is in the Lounge
+  const showLoungeButton = false;
+  const isInLounge =
+    client()!.servers.get("01F7ZSBSFHQ8TA81725KQCSDDP") !== undefined;
+
+  return (
+    <Base>
+      <Header placement="primary">
+        <HeaderIcon>
+          <MdHome {...iconSize(22)} />
+        </HeaderIcon>
+        <Trans>Home</Trans>
+      </Header>
+      <div use:scrollable={{ class: content() }}>
+        <Column alignItems="center" gap="16px">
+          <img
+            src={limyrxLogo}
+            alt="Limyrx Chat Logo"
+            class={css({
+              width: "160px",
+              height: "160px",
+              borderRadius: "var(--borderRadius-2xl)",
+              objectFit: "contain",
+              filter: "drop-shadow(0 4px 24px rgba(255,255,255,0.15))",
+            })}
+          />
+          <Wordmark
+            class={css({
+              width: "320px",
+              fill: "#FFFFFF",
+              filter: "drop-shadow(0 2px 12px rgba(255,255,255,0.2))",
+            })}
+          />
+        </Column>
+        <Buttons>
+          <SeparatedColumn>
+            <CategoryButton
+              onClick={() =>
+                openModal({
+                  type: "create_group_or_server",
+                  client: client()!,
+                })
+              }
+              description={
+                <Trans>
+                  Invite all of your friends, some cool bots, and throw a big
+                  party.
+                </Trans>
+              }
+              icon={<MdAddCircle />}
+            >
+              <Trans>Create a group or server</Trans>
+            </CategoryButton>
+            <Switch fallback={null}>
+              <Match when={showLoungeButton && isInLounge}>
+                <CategoryButton
+                  onClick={() => navigate("/server/01F7ZSBSFHQ8TA81725KQCSDDP")}
+                  description={
+                    <Trans>
+                      You can report issues and discuss improvements with us
+                      directly here.
+                    </Trans>
+                  }
+                  icon={<MdGroups3 />}
+                >
+                  <Trans>Go to the Limyrx Chat Lounge</Trans>
+                </CategoryButton>
+              </Match>
+              <Match when={showLoungeButton && !isInLounge}>
+                <CategoryButton
+                  onClick={() => {
+                    client()
+                      .api.get("/invites/Testers")
+                      .then((invite) =>
+                        PublicChannelInvite.from(client(), invite),
+                      )
+                      .then((invite) => openModal({ type: "invite", invite }));
+                  }}
+                  description={
+                    <Trans>
+                      You can report issues and discuss improvements with us
+                      directly here.
+                    </Trans>
+                  }
+                  icon={<MdGroups3 />}
+                >
+                  <Trans>Join the Limyrx Chat Lounge</Trans>
+                </CategoryButton>
+              </Match>
+            </Switch>
+            <CategoryButton
+              variant="tertiary"
+              onClick={() => window.open("#")}
+              description={
+                <Trans>Support the project by donating - thank you!</Trans>
+              }
+              icon={<MdPayments />}
+            >
+              <Trans>Donate to Limyrx Chat</Trans>
+            </CategoryButton>
+          </SeparatedColumn>
+          <SeparatedColumn>
+            <Show when={CONFIGURATION.IS_STOAT}>
+              <CategoryButton
+                onClick={() => navigate("/discover")}
+                description={
+                  <Trans>
+                    Find a community based on your hobbies or interests.
+                  </Trans>
+                }
+                icon={<MdExplore />}
+              >
+                <Trans>Discover Limyrx Chat</Trans>
+              </CategoryButton>
+            </Show>
+            <CategoryButton
+              onClick={() =>
+                openModal({
+                  type: "settings",
+                  config: "user",
+                  context: { page: "feedback" },
+                })
+              }
+              description={
+                <Trans>
+                  Let us know how we can improve our app by giving us feedback.
+                </Trans>
+              }
+              icon={<MdRateReview {...iconSize(22)} />}
+            >
+              <Trans>Give feedback on Limyrx Chat</Trans>
+            </CategoryButton>
+            <CategoryButton
+              onClick={() => openModal({ type: "settings", config: "user" })}
+              description={
+                <Trans>
+                  You can also click the gear icon in the bottom left.
+                </Trans>
+              }
+              icon={<MdSettings />}
+            >
+              <Trans>Open settings</Trans>
+            </CategoryButton>
+          </SeparatedColumn>
+        </Buttons>
+        <TurboCard onClick={() => alert("Limyrx Turbo is coming soon!")}>
+          <TurboIcon>
+            <MdRocket {...iconSize(26)} />
+          </TurboIcon>
+          <TurboText>
+            <TurboTitle>
+              <Trans>Try Limyrx Turbo</Trans>
+            </TurboTitle>
+            <TurboDescription>
+              <Trans>
+                Unlock exclusive features, custom themes, larger uploads,
+                priority support, and more. Subscription coming soon!
+              </Trans>
+            </TurboDescription>
+          </TurboText>
+        </TurboCard>
+        <Show when={IS_DEV}>
+          <Button onPress={() => navigate("/dev")}>
+            Open Development Page
+          </Button>
+        </Show>
+      </div>
+    </Base>
+  );
+}

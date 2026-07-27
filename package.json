@@ -1,0 +1,68 @@
+{
+  "name": "limyrx-chat",
+  "version": "1.0.0",
+  "description": "Limyrx Chat: desktop chat application",
+  "main": "electron/main.js",
+  "scripts": {
+    "prepare": "cd packages/client && pnpm prepare",
+    "electron:dev": "cd packages/client && pnpm exec vite --host --port 5173 & electron .",
+    "electron:build": "cd packages/client && pnpm exec vite build && cd ../.. && electron-builder --win",
+    "electron:build:mac": "cd packages/client && pnpm exec vite build && cd ../.. && electron-builder --mac",
+    "electron:build:linux": "cd packages/client && pnpm exec vite build && cd ../.. && electron-builder --linux"
+  },
+  "build": {
+    "appId": "chat.limyrx.app",
+    "productName": "Limyrx Chat",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "electron/**/*",
+      "packages/client/dist/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "build/icon.png"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Limyrx Chat"
+    },
+    "extraResources": [
+      {
+        "from": "build/icon.png",
+        "to": "icon.png"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "electron": "^35.0.0",
+    "electron-builder": "^26.0.0",
+    "eslint": "^9.26.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "eslint-plugin-solid": "^0.14.5",
+    "prettier": "^3.8.1",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "typescript-eslint": "^8.54.0"
+  },
+  "keywords": [],
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=6"
+  },
+  "private": true,
+  "packageManager": "pnpm@11.3.0+sha512.2c403d6594527287672b1f7056343a1f7c3634036a67ffabfcc2b3d7595d843768f8787148d1b57cf7956c90606bbd192857c363af19e96d2d0ec9ec5741d215"
+}

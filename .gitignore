@@ -1,0 +1,15 @@
+node_modules
+coverage
+dist
+release
+electron/dist
+
+*.log
+
+.env*
+!.env.example
+!.env.production
+
+.vercel
+
+.idea
