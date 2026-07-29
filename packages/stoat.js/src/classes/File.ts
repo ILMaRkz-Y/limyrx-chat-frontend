@@ -115,6 +115,7 @@ export class File {
   createFileURL(forceAnimation?: boolean): string | undefined {
     const autumn = this.#client.configuration?.features.autumn;
     if (!autumn?.enabled) return;
+    if (!this.tag || !this.id) return;
 
     let query = "";
     if (forceAnimation && this.contentType === "image/gif") {
