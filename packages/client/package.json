@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "prepare": "panda codegen",
+    "prepare": "node ./scripts/copyAssets.mjs && panda codegen",
     "build": "vite build"
   },
   "devDependencies": {
