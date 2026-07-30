@@ -2,8 +2,8 @@ import { Trans } from "@lingui-solid/solid/macro";
 import { useState } from "@revolt/state";
 import { Button, Text } from "@revolt/ui";
 import { Show, createSignal } from "solid-js";
+import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
-import AndroidPromo from "/assets/inapp-promotion/web/android-phone.png?url";
 
 /**
  * Section ID used to persist permanent dismissal of the nag screen
@@ -165,7 +165,7 @@ export function AndroidNag() {
     <Show when={show()}>
       <Base>
         <Hero>
-          <img src={AndroidPromo} alt="Limyrx Chat on Android" />
+          <div class={css({ width: "min(60vw, 240px)", height: "auto", aspectRatio: "1", background: "var(--md-sys-color-surface-container-high)", borderRadius: "var(--borderRadius-lg)", marginBottom: "var(--gap-md)" })} />
 
           <Heading>
             <Text class="headline" size="large">
