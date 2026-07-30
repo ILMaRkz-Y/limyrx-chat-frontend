@@ -67,7 +67,11 @@ export class ServerMemberCollection extends ClassCollection<
    */
   getOrCreate(id: MemberCompositeKey, data: Member): ServerMember {
     if (this.hasByKey(id) && !this.isPartialByKey(id)) {
-      return this.getByKey(id)!;
+      const instance = this.getByKey(id)!;
+      // Always re-hydrate the underlying store data so new/updated
+      // fields from the API are picked up.
+      this.create(id.server + id.user, "serverMember", instance, this.client, data);
+      return instance;
     } else {
       const instance = new ServerMember(this, id);
       this.create(

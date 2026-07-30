@@ -46,7 +46,11 @@ export class UserCollection extends ClassCollection<User, HydratedUser> {
    */
   getOrCreate(id: string, data: APIUser): User {
     if (this.has(id) && !this.isPartial(id)) {
-      return this.get(id)!;
+      const instance = this.get(id)!;
+      // Always re-hydrate the underlying store data so new/updated
+      // fields (e.g. avatar, display_name) from the API are picked up.
+      this.create(id, "user", instance, this.client, data);
+      return instance;
     } else {
       const instance = new User(this, id);
       this.create(id, "user", instance, this.client, data);

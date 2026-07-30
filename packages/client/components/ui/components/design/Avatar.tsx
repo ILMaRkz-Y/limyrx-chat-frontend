@@ -69,15 +69,17 @@ export type Props = {
 /**
  * Avatar image
  */
-const Image = styled("div", {
+const Image = styled("img", {
   base: {
     width: "100%",
     height: "100%",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
+    display: "block",
+    objectFit: "cover",
     borderRadius: "var(--borderRadius-circle)",
     backgroundColor: "var(--md-sys-color-surface-container-low)",
+    transform: "translateZ(0)",
+    isolation: "isolate",
+    backfaceVisibility: "hidden",
   },
 });
 
@@ -144,6 +146,7 @@ export function Avatar(props: Props) {
           y="0"
           width="32"
           height="32"
+          style="transform: translateZ(0); will-change: transform; isolation: isolate;"
           class={css({ transition: "var(--transitions-fast) filter" })}
         >
           <Shape shape={props.shape}>
@@ -163,7 +166,7 @@ export function Avatar(props: Props) {
                 </FallbackBase>
               }
             >
-              <Image style={{ backgroundImage: `url(${props.src})` }} />
+              <Image src={props.src} />
             </Show>
           </Shape>
         </foreignObject>
@@ -181,6 +184,8 @@ const ParentBase = styled("svg", {
     flexShrink: 0,
     userSelect: "none",
     cursor: "inherit",
+    transform: "translateZ(0)",
+    willChange: "transform",
   },
   variants: {
     interactive: {
