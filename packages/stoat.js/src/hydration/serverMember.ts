@@ -28,7 +28,7 @@ export const serverMemberHydration: Hydrate<
     id: (member) => member._id,
     joinedAt: (member) => new Date(member.joined_at),
     nickname: (member) => member.nickname!,
-    avatar: (member, ctx) => new File(ctx as Client, member.avatar!),
+    avatar: (member, ctx) => (member.avatar ? new File(ctx as Client, member.avatar) : undefined),
     pronouns: (member) => member.pronouns!,
     roles: (member) => member.roles,
     timeout: (member) => new Date(member.timeout!),
