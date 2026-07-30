@@ -25,7 +25,7 @@ export const EmojiBase = styled("img", {
       position: "absolute",
       height: "50px",
       width: "50px",
-      backgroundImage: "url(ishere.jpg)",
+      backgroundImage: "url(/ishere.jpg)",
     },
   },
 });

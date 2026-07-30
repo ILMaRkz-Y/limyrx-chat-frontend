@@ -1,5 +1,5 @@
 {
-  "buildCommand": "cd packages/client && pnpm --filter '@lingui-solid/babel-plugin-*' --filter stoat.js --filter solid-livekit-components run build && pnpm build",
+  "buildCommand": "cd packages/client && pnpm --filter '@lingui-solid/babel-plugin-*' --filter stoat.js --filter solid-livekit-components run build && pnpm exec lingui compile --typescript && pnpm build",
   "outputDirectory": "packages/client/dist",
   "installCommand": "pnpm install",
   "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }]
