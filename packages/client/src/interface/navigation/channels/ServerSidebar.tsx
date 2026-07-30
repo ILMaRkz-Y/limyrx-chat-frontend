@@ -89,6 +89,85 @@ type OrderingEvent =
 /**
  * Display server information and channels
  */
+/**
+ * Server name
+ */
+const ServerName = styled("a", {
+  base: {
+    flexGrow: 1,
+    minWidth: 0,
+
+    overflow: "hidden",
+    whiteSpace: "nowrap",
+    textOverflow: "ellipsis",
+  },
+});
+
+const CategorySection = styled("div", {
+  base: {
+    display: "flex",
+    gap: "var(--gap-md)",
+    flexDirection: "column",
+    paddingBlock: "var(--gap-sm)",
+    borderRadius: "var(--borderRadius-sm)",
+    background: "var(--md-sys-color-surface-container-low)",
+  },
+});
+
+/**
+ * Category title styling
+ */
+const CategoryBase = styled("div", {
+  base: {
+    display: "flex",
+    alignItems: "center",
+    gap: "var(--gap-sm)",
+
+    padding: "0 var(--gap-sm)",
+    paddingLeft: "calc(var(--gap-lg) + 5px)",
+    paddingTop: "10px",
+
+    cursor: "pointer",
+    userSelect: "none",
+    transition: "var(--transitions-fast) all",
+
+    "--color": "var(--md-sys-color-on-surface)",
+    color: "var(--color)",
+    fill: "var(--color)",
+
+    ...typography.raw({ class: "label", size: "small" }),
+    fontSize: "13px",
+
+    "&:hover": {
+      "--color": "var(--md-sys-color-on-surface-variant)",
+    },
+
+    "& svg": {
+      transition: "var(--transitions-fast) transform",
+    },
+  },
+  variants: {
+    open: {
+      true: {
+        "& svg": {
+          transform: "rotateZ(90deg)",
+        },
+      },
+    },
+  },
+});
+
+/**
+ * Channel icon styling
+ */
+const ChannelIcon = styled("img", {
+  base: {
+    width: "16px",
+    height: "16px",
+    objectFit: "contain",
+  },
+});
+
 export const ServerSidebar = (props: Props) => {
   const navigate = useNavigate();
   const { isMobile } = useDevice();
@@ -285,20 +364,6 @@ function ServerInfo(
 }
 
 /**
- * Server name
- */
-const ServerName = styled("a", {
-  base: {
-    flexGrow: 1,
-    minWidth: 0,
-
-    overflow: "hidden",
-    whiteSpace: "nowrap",
-    textOverflow: "ellipsis",
-  },
-});
-
-/**
  * Server badge
  */
 function ServerBadge(props: { flags: ServerFlags }) {
@@ -393,60 +458,6 @@ function Category(
     </CategorySection>
   );
 }
-
-const CategorySection = styled("div", {
-  base: {
-    display: "flex",
-    gap: "var(--gap-md)",
-    flexDirection: "column",
-    paddingBlock: "var(--gap-sm)",
-    borderRadius: "var(--borderRadius-sm)",
-    background: "var(--md-sys-color-surface-container-low)",
-  },
-});
-
-/**
- * Category title styling
- */
-const CategoryBase = styled("div", {
-  base: {
-    display: "flex",
-    alignItems: "center",
-    gap: "var(--gap-sm)",
-
-    padding: "0 var(--gap-sm)",
-    paddingLeft: "calc(var(--gap-lg) + 5px)",
-    paddingTop: "10px",
-
-    cursor: "pointer",
-    userSelect: "none",
-    transition: "var(--transitions-fast) all",
-
-    "--color": "var(--md-sys-color-on-surface)",
-    color: "var(--color)",
-    fill: "var(--color)",
-
-    ...typography.raw({ class: "label", size: "small" }),
-    fontSize: "13px",
-
-    "&:hover": {
-      "--color": "var(--md-sys-color-on-surface-variant)",
-    },
-
-    "& svg": {
-      transition: "var(--transitions-fast) transform",
-    },
-  },
-  variants: {
-    open: {
-      true: {
-        "& svg": {
-          transform: "rotateZ(90deg)",
-        },
-      },
-    },
-  },
-});
 
 /**
  * Server channel entry
@@ -568,14 +579,3 @@ function Entry(
     </Column>
   );
 }
-
-/**
- * Channel icon styling
- */
-const ChannelIcon = styled("img", {
-  base: {
-    width: "16px",
-    height: "16px",
-    objectFit: "contain",
-  },
-});

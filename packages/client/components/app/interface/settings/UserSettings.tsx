@@ -233,12 +233,7 @@ const Config: SettingsConfiguration<{ server: Server }> = {
             {
               id: "bots",
               icon: <MdSmartToy {...iconSize(20)} />,
-              title: <Trans>My Bots</Trans>,
-            },
-            {
-              id: "feedback",
-              icon: <MdRateReview {...iconSize(20)} />,
-              title: <Trans>Feedback</Trans>,
+              title: "Bots",
             },
           ],
         },

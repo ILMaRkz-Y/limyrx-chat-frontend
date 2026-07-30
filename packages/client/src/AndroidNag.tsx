@@ -34,79 +34,6 @@ const isEligibleOrigin = () => {
 };
 
 /**
- * Full screen nag encouraging Android users to install the native app
- */
-export function AndroidNag() {
-  const state = useState();
-
-  const [dismissedThisSession, setDismissedThisSession] = createSignal(false);
-
-  const permanentlyDismissed = () =>
-    state.layout.getSectionState(ANDROID_NAG_DISMISS_KEY, false);
-
-  const show = () =>
-    isAndroid() &&
-    isEligibleOrigin() &&
-    !dismissedThisSession() &&
-    !permanentlyDismissed();
-
-  return (
-    <Show when={show()}>
-      <Base>
-        <Hero>
-          <img src={AndroidPromo} alt="Limyrx Chat on Android" />
-
-          <Heading>
-            <Text class="headline" size="large">
-              <Trans>Limyrx Chat works best as an app</Trans>
-            </Text>
-          </Heading>
-
-          <Copy>
-            <Text class="body" size="large">
-              <Trans>
-                We are working hard on optimising our web app for mobile.
-              </Trans>
-            </Text>
-
-            <Text class="body" size="large">
-              <Trans>
-                In the meantime, install Limyrx Chat from Google Play for a faster,
-                smoother experience designed for Android.
-              </Trans>
-            </Text>
-          </Copy>
-        </Hero>
-
-        <Footer>
-          <Button
-            variant="filled"
-            onPress={() => {
-              window.open(PLAY_STORE_URL, "_blank", "noopener,noreferrer");
-            }}
-          >
-            <Trans>Get it on Google Play</Trans>
-          </Button>
-
-          <Button variant="text" onPress={() => setDismissedThisSession(true)}>
-            <Trans>Continue in browser</Trans>
-          </Button>
-
-          <DismissLink
-            onClick={() => {
-              state.layout.setSectionState(ANDROID_NAG_DISMISS_KEY, true);
-              setDismissedThisSession(true);
-            }}
-          >
-            <Trans>Don't show this again</Trans>
-          </DismissLink>
-        </Footer>
-      </Base>
-    </Show>
-  );
-}
-
-/**
  * Full screen container that sits above all other UI
  */
 const Base = styled("div", {
@@ -216,3 +143,76 @@ const DismissLink = styled("button", {
     },
   },
 });
+
+/**
+ * Full screen nag encouraging Android users to install the native app
+ */
+export function AndroidNag() {
+  const state = useState();
+
+  const [dismissedThisSession, setDismissedThisSession] = createSignal(false);
+
+  const permanentlyDismissed = () =>
+    state.layout.getSectionState(ANDROID_NAG_DISMISS_KEY, false);
+
+  const show = () =>
+    isAndroid() &&
+    isEligibleOrigin() &&
+    !dismissedThisSession() &&
+    !permanentlyDismissed();
+
+  return (
+    <Show when={show()}>
+      <Base>
+        <Hero>
+          <img src={AndroidPromo} alt="Limyrx Chat on Android" />
+
+          <Heading>
+            <Text class="headline" size="large">
+              <Trans>Limyrx Chat works best as an app</Trans>
+            </Text>
+          </Heading>
+
+          <Copy>
+            <Text class="body" size="large">
+              <Trans>
+                We are working hard on optimising our web app for mobile.
+              </Trans>
+            </Text>
+
+            <Text class="body" size="large">
+              <Trans>
+                In the meantime, install Limyrx Chat from Google Play for a faster,
+                smoother experience designed for Android.
+              </Trans>
+            </Text>
+          </Copy>
+        </Hero>
+
+        <Footer>
+          <Button
+            variant="filled"
+            onPress={() => {
+              window.open(PLAY_STORE_URL, "_blank", "noopener,noreferrer");
+            }}
+          >
+            <Trans>Get it on Google Play</Trans>
+          </Button>
+
+          <Button variant="text" onPress={() => setDismissedThisSession(true)}>
+            <Trans>Continue in browser</Trans>
+          </Button>
+
+          <DismissLink
+            onClick={() => {
+              state.layout.setSectionState(ANDROID_NAG_DISMISS_KEY, true);
+              setDismissedThisSession(true);
+            }}
+          >
+            <Trans>Don't show this again</Trans>
+          </DismissLink>
+        </Footer>
+      </Base>
+    </Show>
+  );
+}

@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "prepare": "panda codegen",
-    "build": "echo 'Using pre-built dist'"
+    "build": "vite build"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^2.0.2",
@@ -29,7 +29,6 @@
     "jsdom": "^25.0.1",
     "lnk": "^1.1.0",
     "rehype-stringify": "^10.0.1",
-    "limyrx.js": "workspace:^",
     "typescript": "^5.8.3",
     "vite": "^5.4.19",
     "vite-plugin-babel-macros": "^1.0.6",
@@ -145,7 +144,7 @@
     "solid-qr-code": "^0.1.11",
     "solid-stripe": "^0.7.5",
     "space-separated-tokens": "^2.0.2",
-    "limyrx.js": "workspace:^",
+    "stoat.js": "workspace:^",
     "style-to-object": "^1.0.8",
     "ulid": "^3.0.2",
     "unified": "^11.0.5",

@@ -24,7 +24,6 @@ import MdGroups3 from "@material-design-icons/svg/filled/groups_3.svg?component-
 import MdHome from "@material-design-icons/svg/filled/home.svg?component-solid";
 import MdPayments from "@material-design-icons/svg/filled/payments.svg?component-solid";
 import MdRateReview from "@material-design-icons/svg/filled/rate_review.svg?component-solid";
-import MdRocket from "@material-design-icons/svg/filled/rocket.svg?component-solid";
 import MdSettings from "@material-design-icons/svg/filled/settings.svg?component-solid";
 
 import Wordmark from "../assets/web/wordmark.svg?component-solid";
@@ -88,74 +87,6 @@ const SeparatedColumn = styled(Column, {
     "& > *": {
       flexGrow: 1,
     },
-  },
-});
-
-/**
- * Turbo card
- */
-const TurboCard = styled("div", {
-  base: {
-    width: "100%",
-    maxWidth: "540px",
-    padding: "24px 28px",
-    borderRadius: "var(--borderRadius-xl)",
-    background:
-      "linear-gradient(135deg, rgba(124,58,237,0.15) 0%, rgba(168,85,247,0.10) 50%, rgba(192,132,252,0.15) 100%)",
-    border: "1px solid rgba(168,85,247,0.25)",
-    cursor: "pointer",
-    transition: "all 0.2s ease",
-    display: "flex",
-    alignItems: "center",
-    gap: "18px",
-    "&:hover": {
-      background:
-        "linear-gradient(135deg, rgba(124,58,237,0.25) 0%, rgba(168,85,247,0.18) 50%, rgba(192,132,252,0.25) 100%)",
-      border: "1px solid rgba(168,85,247,0.45)",
-      transform: "translateY(-2px)",
-      boxShadow: "0 8px 32px rgba(124,58,237,0.2)",
-    },
-  },
-});
-
-const TurboIcon = styled("div", {
-  base: {
-    width: "52px",
-    height: "52px",
-    borderRadius: "var(--borderRadius-lg)",
-    background:
-      "linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexShrink: 0,
-    color: "#FFFFFF",
-    boxShadow: "0 4px 16px rgba(124,58,237,0.35)",
-  },
-});
-
-const TurboText = styled("div", {
-  base: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "4px",
-  },
-});
-
-const TurboTitle = styled("div", {
-  base: {
-    fontSize: "1.1em",
-    fontWeight: "700",
-    color: "#FFFFFF",
-    letterSpacing: "0.02em",
-  },
-});
-
-const TurboDescription = styled("div", {
-  base: {
-    fontSize: "0.85em",
-    color: "var(--md-sys-color-on-surface-variant)",
-    lineHeight: "1.4",
   },
 });
 
@@ -271,31 +202,25 @@ export function HomePage() {
           <SeparatedColumn>
             <Show when={CONFIGURATION.IS_STOAT}>
               <CategoryButton
-                onClick={() => navigate("/discover")}
+                onClick={() => navigate("/")}
                 description={
                   <Trans>
-                    Find a community based on your hobbies or interests.
+                    Browse and discover new communities.
                   </Trans>
                 }
                 icon={<MdExplore />}
               >
-                <Trans>Discover Limyrx Chat</Trans>
+                <Trans>Discover</Trans>
               </CategoryButton>
             </Show>
             <CategoryButton
-              onClick={() =>
-                openModal({
-                  type: "settings",
-                  config: "user",
-                  context: { page: "feedback" },
-                })
-              }
               description={
                 <Trans>
                   Let us know how we can improve our app by giving us feedback.
                 </Trans>
               }
               icon={<MdRateReview {...iconSize(22)} />}
+              disabled
             >
               <Trans>Give feedback on Limyrx Chat</Trans>
             </CategoryButton>
@@ -312,23 +237,7 @@ export function HomePage() {
             </CategoryButton>
           </SeparatedColumn>
         </Buttons>
-        <TurboCard onClick={() => alert("Limyrx Turbo is coming soon!")}>
-          <TurboIcon>
-            <MdRocket {...iconSize(26)} />
-          </TurboIcon>
-          <TurboText>
-            <TurboTitle>
-              <Trans>Try Limyrx Turbo</Trans>
-            </TurboTitle>
-            <TurboDescription>
-              <Trans>
-                Unlock exclusive features, custom themes, larger uploads,
-                priority support, and more. Subscription coming soon!
-              </Trans>
-            </TurboDescription>
-          </TurboText>
-        </TurboCard>
-        <Show when={IS_DEV}>
+<Show when={IS_DEV}>
           <Button onPress={() => navigate("/dev")}>
             Open Development Page
           </Button>

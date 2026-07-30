@@ -56,6 +56,78 @@ const isEligibleOrigin = () => {
 };
 
 /**
+ * Full-height container that keeps the spinner centred
+ */
+const Base = styled("div", {
+  base: {
+    position: "relative",
+    display: "flex",
+    flexGrow: 1,
+    minHeight: 0,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
+
+/**
+ * Fixed size wrapper so the spinner does not stretch inside the flex column
+ */
+const Spinner = styled("div", {
+  base: {
+    flexShrink: 0,
+    width: "48px",
+    height: "48px",
+  },
+});
+
+/**
+ * Incident notice
+ */
+const Notice = styled("div", {
+  base: {
+    position: "absolute",
+    top: "calc(50% + 48px)",
+    insetInline: 0,
+
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: "var(--gap-lg)",
+    textAlign: "center",
+    maxWidth: "42ch",
+    marginInline: "auto",
+    paddingInline: "var(--gap-lg)",
+    color: "var(--md-sys-color-on-surface-variant)",
+  },
+});
+
+/**
+ * Impact level and title
+ */
+const Header = styled("div", {
+  base: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: "var(--gap-md)",
+  },
+});
+
+/**
+ * Current incident impact level with symbol
+ */
+const Impact = styled("div", {
+  base: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: "var(--gap-md)",
+    letterSpacing: "0.05em",
+    color: "var(--md-sys-color-on-surface-variant)",
+  },
+});
+
+/**
  * Loading screen shown while the client connects for the first time.
  *
  * If the connection does not succeed within {@link STATUS_PROBE_DELAY}, and we
@@ -205,75 +277,3 @@ function NoticeContent(props: {
     </Notice>
   );
 }
-
-/**
- * Full-height container that keeps the spinner centred
- */
-const Base = styled("div", {
-  base: {
-    position: "relative",
-    display: "flex",
-    flexGrow: 1,
-    minHeight: 0,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
-
-/**
- * Fixed size wrapper so the spinner does not stretch inside the flex column
- */
-const Spinner = styled("div", {
-  base: {
-    flexShrink: 0,
-    width: "48px",
-    height: "48px",
-  },
-});
-
-/**
- * Incident notice
- */
-const Notice = styled("div", {
-  base: {
-    position: "absolute",
-    top: "calc(50% + 48px)",
-    insetInline: 0,
-
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: "var(--gap-lg)",
-    textAlign: "center",
-    maxWidth: "42ch",
-    marginInline: "auto",
-    paddingInline: "var(--gap-lg)",
-    color: "var(--md-sys-color-on-surface-variant)",
-  },
-});
-
-/**
- * Impact level and title
- */
-const Header = styled("div", {
-  base: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: "var(--gap-md)",
-  },
-});
-
-/**
- * Current incident impact level with symbol
- */
-const Impact = styled("div", {
-  base: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: "var(--gap-md)",
-    letterSpacing: "0.05em",
-    color: "var(--md-sys-color-on-surface-variant)",
-  },
-});

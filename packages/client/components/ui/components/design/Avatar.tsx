@@ -69,11 +69,15 @@ export type Props = {
 /**
  * Avatar image
  */
-const Image = styled("img", {
+const Image = styled("div", {
   base: {
     width: "100%",
     height: "100%",
-    objectFit: "cover",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    borderRadius: "var(--borderRadius-circle)",
+    backgroundColor: "var(--md-sys-color-surface-container-low)",
   },
 });
 
@@ -159,7 +163,7 @@ export function Avatar(props: Props) {
                 </FallbackBase>
               }
             >
-              <Image src={props.src} draggable={false} />
+              <Image style={{ backgroundImage: `url(${props.src})` }} />
             </Show>
           </Shape>
         </foreignObject>

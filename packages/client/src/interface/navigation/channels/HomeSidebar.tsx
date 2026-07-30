@@ -50,6 +50,65 @@ interface Props {
 /**
  * Display home navigation and conversations
  */
+/**
+ * Sidebar title
+ */
+const SidebarTitle = styled("p", {
+  base: {
+    paddingBlock: "calc(var(--gap-md) + 15px)",
+    paddingInline: "var(--gap-md)",
+
+    ...typography.raw({ class: "title" }),
+  },
+});
+
+/**
+ * Button title
+ */
+const ButtonTitle = styled("div", {
+  base: {
+    gap: "var(--gap-md)",
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+  },
+});
+
+const PendingBadge = styled("div", {
+  base: {
+    ...typography.raw({ class: "label", size: "small" }),
+    padding: "var(--gap-sm) var(--gap-md)",
+    color: "var(--md-sys-color-on-error)",
+    background: "var(--md-sys-color-error)",
+    borderRadius: "var(--borderRadius-md)",
+  },
+});
+
+const Category = styled("div", {
+  base: {
+    display: "flex",
+    paddingInline: "var(--gap-lg)",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingTop: "calc(var(--gap-xl) - 5px)",
+    paddingBottom: "var(--gap-md)",
+
+    ...typography.raw({ class: "label", size: "small" }),
+    fontSize: "13px",
+  },
+});
+
+/**
+ * Inner scrollable list
+ * We fix the width in order to prevent scrollbar from moving stuff around
+ */
+const List = styled("div", {
+  base: {
+    paddingLeft: "var(--gap-md)",
+    width: "var(--layout-width-channel-sidebar)",
+  },
+});
+
 export const HomeSidebar = (props: Props) => {
   const { t } = useLingui();
   const client = useClient();
@@ -191,54 +250,6 @@ export const HomeSidebar = (props: Props) => {
     </SidebarBase>
   );
 };
-
-/**
- * Sidebar title
- */
-const SidebarTitle = styled("p", {
-  base: {
-    paddingBlock: "calc(var(--gap-md) + 15px)",
-    paddingInline: "var(--gap-md)",
-
-    ...typography.raw({ class: "title" }),
-  },
-});
-
-/**
- * Button title
- */
-const ButtonTitle = styled("div", {
-  base: {
-    gap: "var(--gap-md)",
-    height: "100%",
-    display: "flex",
-    alignItems: "center",
-  },
-});
-
-const PendingBadge = styled("div", {
-  base: {
-    ...typography.raw({ class: "label", size: "small" }),
-    padding: "var(--gap-sm) var(--gap-md)",
-    color: "var(--md-sys-color-on-error)",
-    background: "var(--md-sys-color-error)",
-    borderRadius: "var(--borderRadius-md)",
-  },
-});
-
-const Category = styled("div", {
-  base: {
-    display: "flex",
-    paddingInline: "var(--gap-lg)",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingTop: "calc(var(--gap-xl) - 5px)",
-    paddingBottom: "var(--gap-md)",
-
-    ...typography.raw({ class: "label", size: "small" }),
-    fontSize: "13px",
-  },
-});
 
 /**
  * Styles required to correctly display name and status
@@ -390,14 +401,3 @@ function Entry(
     </MenuButton>
   );
 }
-
-/**
- * Inner scrollable list
- * We fix the width in order to prevent scrollbar from moving stuff around
- */
-const List = styled("div", {
-  base: {
-    paddingLeft: "var(--gap-md)",
-    width: "var(--layout-width-channel-sidebar)",
-  },
-});

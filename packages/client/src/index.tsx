@@ -51,7 +51,7 @@ if ((window as any).electronAPI?.isElectron) {
   document.body.style.marginTop = "0";
 }
 import { DevelopmentPage } from "./interface/Development";
-import { Discover } from "./interface/Discover";
+// import { Discover } from "./interface/Discover";
 import { Friends } from "./interface/Friends";
 import { HomePage } from "./interface/Home";
 import { ServerHome } from "./interface/ServerHome";
@@ -179,7 +179,7 @@ render(
           <Route path="/" component={Interface as never}>
             <Route path="/pwa" component={PWARedirect} />
             <Route path="/dev" component={DevelopmentPage} />
-            <Route path="/discover/*" component={Discover} />
+            {/* <Route path="/discover/*" component={Discover} /> */}
             <Route path="/settings" component={SettingsRedirect} />
             <Route path="/invite/:code" component={InviteRedirect} />
             <Route path="/bot/:code" component={BotRedirect} />

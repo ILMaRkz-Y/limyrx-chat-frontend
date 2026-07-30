@@ -13,3 +13,5 @@ electron/dist
 .vercel
 
 .idea
+.vercel
+.env*

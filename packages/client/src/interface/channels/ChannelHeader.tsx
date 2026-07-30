@@ -52,6 +52,42 @@ interface Props {
 /**
  * Common channel header component
  */
+const SearchBox = styled("input", {
+  base: {
+    height: "40px",
+    width: "240px",
+    paddingInline: "16px",
+    borderRadius: "var(--borderRadius-full)",
+    background: "var(--md-sys-color-surface-container-high)",
+  },
+});
+
+/**
+ * Vertical divider between name and topic
+ */
+const Divider = styled("div", {
+  base: {
+    height: "20px",
+    margin: "0px 5px",
+    paddingLeft: "1px",
+    backgroundColor: "var(--md-sys-color-outline-variant)",
+  },
+});
+
+/**
+ * Link for the description
+ */
+const descriptionLink = css({
+  minWidth: 0,
+});
+
+const mobileOverflow = css({
+  _phone: {
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+  },
+});
+
 export function ChannelHeader(props: Props) {
   const { openModal } = useModals();
   const client = useClient();
@@ -295,39 +331,3 @@ export function ChannelHeader(props: Props) {
     </>
   );
 }
-
-const SearchBox = styled("input", {
-  base: {
-    height: "40px",
-    width: "240px",
-    paddingInline: "16px",
-    borderRadius: "var(--borderRadius-full)",
-    background: "var(--md-sys-color-surface-container-high)",
-  },
-});
-
-/**
- * Vertical divider between name and topic
- */
-const Divider = styled("div", {
-  base: {
-    height: "20px",
-    margin: "0px 5px",
-    paddingLeft: "1px",
-    backgroundColor: "var(--md-sys-color-outline-variant)",
-  },
-});
-
-/**
- * Link for the description
- */
-const descriptionLink = css({
-  minWidth: 0,
-});
-
-const mobileOverflow = css({
-  _phone: {
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-  },
-});

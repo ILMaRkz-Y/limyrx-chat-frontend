@@ -211,6 +211,12 @@ export function Friends() {
   );
 }
 
+const ContainerListEntry = styled("div", {
+  base: {
+    width: "100%",
+  },
+});
+
 /**
  * List of users
  */
@@ -260,12 +266,6 @@ function People(props: {
     </List>
   );
 }
-
-const ContainerListEntry = styled("div", {
-  base: {
-    width: "100%",
-  },
-});
 
 /**
  * Single user entry

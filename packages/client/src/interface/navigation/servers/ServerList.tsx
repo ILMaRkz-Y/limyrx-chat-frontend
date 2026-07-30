@@ -65,6 +65,102 @@ interface Props {
 /**
  * Server list sidebar component
  */
+/**
+ * Server list container
+ */
+const ServerListBase = styled("div", {
+  base: {
+    display: "flex",
+    flexDirection: "column",
+
+    fill: "var(--md-sys-color-on-surface)",
+  },
+});
+
+/**
+ * Container around list of servers
+ */
+const listBase = cva({
+  base: {
+    flexGrow: 1,
+  },
+});
+
+/**
+ * Server entries
+ */
+const entryContainer = cva({
+  base: {
+    width: "56px",
+    height: "56px",
+    position: "relative",
+    display: "grid",
+    flexShrink: 0,
+    placeItems: "center",
+
+    "&:before": {
+      content: "' '",
+      position: "absolute",
+      width: "12px",
+      height: "0px",
+      transition: "var(--transitions-fast) all",
+      left: "-8px",
+      borderRadius: "4px",
+      background: "var(--md-sys-color-on-surface)",
+    },
+
+    "&:hover:before": {
+      height: "16px",
+    },
+  },
+  variants: {
+    indicator: {
+      selected: {
+        "&:before": {
+          height: "32px !important",
+        },
+      },
+      alert: {
+        "&:before": {
+          height: "8px",
+        },
+      },
+    },
+  },
+});
+
+/**
+ * Divider line between two lists
+ */
+const LineDivider = styled("div", {
+  base: {
+    height: "1px",
+    flexShrink: 0,
+    margin: "6px auto",
+    width: "calc(100% - 24px)",
+    background: "var(--md-sys-color-outline-variant)",
+  },
+});
+
+/**
+ * Shadow at the bottom of the list
+ */
+const Shadow = styled("div", {
+  base: {
+    height: 0,
+    zIndex: 1,
+    position: "relative",
+
+    "& div": {
+      height: "12px",
+      marginTop: "-12px",
+      position: "absolute",
+      background:
+        "linear-gradient(to bottom, transparent, var(--md-sys-color-surface-container-highest))",
+    },
+  },
+});
+
 export const ServerList = (props: Props) => {
   const state = useState();
   const client = useClient();
@@ -311,16 +407,14 @@ export const ServerList = (props: Props) => {
             <Avatar size={42} fallback={<MdAdd />} />
           </a>
         </Tooltip>
-        <Show when={CONFIGURATION.IS_STOAT}>
-          <Tooltip placement="right" content={"Find new servers to join"}>
-            <a
-              href={state.layout.getLastActiveDiscoverPath()}
-              class={entryContainer()}
-            >
-              <Avatar size={42} fallback={<MdExplore />} />
-            </a>
-          </Tooltip>
-        </Show>
+        {/* <Tooltip placement="right" content={"Find new servers to join"}>
+          <a
+            href={state.layout.getLastActiveDiscoverPath()}
+            class={entryContainer()}
+          >
+            <Avatar size={42} fallback={<MdExplore />} />
+          </a>
+        </Tooltip> */}
       </div>
       <Shadow>
         <div />
@@ -336,99 +430,3 @@ export const ServerList = (props: Props) => {
     </ServerListBase>
   );
 };
-
-/**
- * Server list container
- */
-const ServerListBase = styled("div", {
-  base: {
-    display: "flex",
-    flexDirection: "column",
-
-    fill: "var(--md-sys-color-on-surface)",
-  },
-});
-
-/**
- * Container around list of servers
- */
-const listBase = cva({
-  base: {
-    flexGrow: 1,
-  },
-});
-
-/**
- * Server entries
- */
-const entryContainer = cva({
-  base: {
-    width: "56px",
-    height: "56px",
-    position: "relative",
-    display: "grid",
-    flexShrink: 0,
-    placeItems: "center",
-
-    "&:before": {
-      content: "' '",
-      position: "absolute",
-      width: "12px",
-      height: "0px",
-      transition: "var(--transitions-fast) all",
-      left: "-8px",
-      borderRadius: "4px",
-      background: "var(--md-sys-color-on-surface)",
-    },
-
-    "&:hover:before": {
-      height: "16px",
-    },
-  },
-  variants: {
-    indicator: {
-      selected: {
-        "&:before": {
-          height: "32px !important",
-        },
-      },
-      alert: {
-        "&:before": {
-          height: "8px",
-        },
-      },
-    },
-  },
-});
-
-/**
- * Divider line between two lists
- */
-const LineDivider = styled("div", {
-  base: {
-    height: "1px",
-    flexShrink: 0,
-    margin: "6px auto",
-    width: "calc(100% - 24px)",
-    background: "var(--md-sys-color-outline-variant)",
-  },
-});
-
-/**
- * Shadow at the bottom of the list
- */
-const Shadow = styled("div", {
-  base: {
-    height: 0,
-    zIndex: 1,
-    position: "relative",
-
-    "& div": {
-      height: "12px",
-      marginTop: "-12px",
-      position: "absolute",
-      background:
-        "linear-gradient(to bottom, transparent, var(--md-sys-color-surface-container-highest))",
-    },
-  },
-});

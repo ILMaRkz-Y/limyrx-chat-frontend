@@ -233,9 +233,6 @@ importers:
       katex:
         specifier: ^0.16.22
         version: 0.16.22
-      limyrx.js:
-        specifier: workspace:^
-        version: link:../stoat.js
       linkify-it:
         specifier: ^5.0.0
         version: 5.0.0
@@ -365,6 +362,9 @@ importers:
       space-separated-tokens:
         specifier: ^2.0.2
         version: 2.0.2
+      stoat.js:
+        specifier: workspace:^
+        version: link:../stoat.js
       style-to-object:
         specifier: ^1.0.8
         version: 1.0.8
@@ -9514,7 +9514,7 @@ snapshots:
     dependencies:
       cross-dirname: 0.1.0
       debug: 4.4.3
-      fs-extra: 11.3.0
+      fs-extra: 11.3.1
       minimist: 1.2.8
       postject: 1.0.0-alpha.6
     transitivePeerDependencies:

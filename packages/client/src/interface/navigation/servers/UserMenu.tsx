@@ -49,6 +49,14 @@ const TruncatedStatusText = styled("div", {
 /**
  * User menu attached to the server list
  */
+const Status = styled("div", {
+  base: {
+    width: "16px",
+    display: "flex",
+    justifyContent: "center",
+  },
+});
+
 export function UserMenu(props: Props) {
   const { t } = useLingui();
   const { openModal } = useModals();
@@ -263,11 +271,3 @@ export function UserMenu(props: Props) {
     </Portal>
   );
 }
-
-const Status = styled("div", {
-  base: {
-    width: "16px",
-    display: "flex",
-    justifyContent: "center",
-  },
-});

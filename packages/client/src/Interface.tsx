@@ -26,6 +26,61 @@ import { LoadingScreen } from "./LoadingScreen";
 import { Sidebar } from "./interface/Sidebar";
 
 /**
+ * Full screen container that sits above all other UI
+ */
+const AppRoot = styled("div", {
+  base: {
+    display: "flex",
+    flexDirection: "column",
+    height: "100%",
+  },
+});
+
+/**
+ * Parent container
+ */
+const Layout = styled("div", {
+  base: {
+    display: "flex",
+    height: "100%",
+    minWidth: 0,
+  },
+  variants: {
+    disconnected: {
+      true: {
+        color: "var(--md-sys-color-on-primary-container)",
+        background: "var(--md-sys-color-primary-container)",
+      },
+      false: {
+        color: "var(--md-sys-color-outline)",
+        background: "var(--md-sys-color-surface-container-high)",
+      },
+    },
+  },
+});
+
+/**
+ * Main content container
+ */
+const Content = styled("div", {
+  base: {
+    background: "var(--md-sys-color-surface-container-low)",
+    display: "flex",
+    width: "100%",
+    minWidth: 0,
+  },
+  variants: {
+    sidebar: {
+      false: {
+        borderTopLeftRadius: "var(--borderRadius-lg)",
+        borderBottomLeftRadius: "var(--borderRadius-lg)",
+        overflow: "hidden",
+      },
+    },
+  },
+});
+
+/**
  * Application layout
  */
 const Interface = (props: { children: JSX.Element }) => {
@@ -138,57 +193,5 @@ const Interface = (props: { children: JSX.Element }) => {
     </MessageCache>
   );
 };
-
-const AppRoot = styled("div", {
-  base: {
-    display: "flex",
-    flexDirection: "column",
-    height: "100%",
-  },
-});
-
-/**
- * Parent container
- */
-const Layout = styled("div", {
-  base: {
-    display: "flex",
-    height: "100%",
-    minWidth: 0,
-  },
-  variants: {
-    disconnected: {
-      true: {
-        color: "var(--md-sys-color-on-primary-container)",
-        background: "var(--md-sys-color-primary-container)",
-      },
-      false: {
-        color: "var(--md-sys-color-outline)",
-        background: "var(--md-sys-color-surface-container-high)",
-      },
-    },
-  },
-});
-
-/**
- * Main content container
- */
-const Content = styled("div", {
-  base: {
-    background: "var(--md-sys-color-surface-container-low)",
-    display: "flex",
-    width: "100%",
-    minWidth: 0,
-  },
-  variants: {
-    sidebar: {
-      false: {
-        borderTopLeftRadius: "var(--borderRadius-lg)",
-        borderBottomLeftRadius: "var(--borderRadius-lg)",
-        overflow: "hidden",
-      },
-    },
-  },
-});
 
 export default Interface;

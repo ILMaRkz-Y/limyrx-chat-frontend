@@ -51,6 +51,29 @@ interface Props {
 /**
  * Message composition engine
  */
+const SlowmodeContainer = styled("div", {
+  base: {
+    display: "flex",
+    justifyContent: "flex-end",
+    padding: "0 12px 6px 0",
+  },
+});
+
+const SlowmodeRow = styled("div", {
+  base: {
+    display: "flex",
+    alignItems: "center",
+    gap: "var(--gap-sm)",
+  },
+});
+
+const SlowmodeText = styled("span", {
+  base: {
+    fontSize: "0.75rem",
+    fontWeight: "600",
+  },
+});
+
 export function MessageComposition(props: Props) {
   const state = useState();
   const { t } = useLingui();
@@ -531,26 +554,3 @@ export function MessageComposition(props: Props) {
     </>
   );
 }
-
-const SlowmodeContainer = styled("div", {
-  base: {
-    display: "flex",
-    justifyContent: "flex-end",
-    padding: "0 12px 6px 0",
-  },
-});
-
-const SlowmodeRow = styled("div", {
-  base: {
-    display: "flex",
-    alignItems: "center",
-    gap: "var(--gap-sm)",
-  },
-});
-
-const SlowmodeText = styled("span", {
-  base: {
-    fontSize: "0.75rem",
-    fontWeight: "600",
-  },
-});

@@ -36,6 +36,61 @@ interface Props {
 /**
  * Member Sidebar
  */
+/**
+ * Container styles
+ */
+const Container = styled("div", {
+  base: {
+    paddingRight: "var(--gap-md)",
+    width: "var(--layout-width-channel-sidebar)",
+  },
+});
+
+/**
+ * Category Title
+ */
+const CategoryTitle = styled("div", {
+  base: {
+    padding: "28px 14px 0",
+    color: "var(--md-sys-color-on-surface)",
+    display: "flex",
+    alignItems: "center",
+    gap: "6px",
+
+    ...typography.raw({ class: "label", size: "small" }),
+  },
+});
+
+const RoleIcon = styled("img", {
+  base: {
+    width: "16px",
+    height: "16px",
+    borderRadius: "var(--borderRadius-sm)",
+    objectFit: "cover",
+  },
+});
+
+/**
+ * Member title
+ */
+const MemberTitle = styled("div", {
+  base: {
+    marginTop: "12px",
+    marginLeft: "14px",
+    color: "var(--md-sys-color-on-surface)",
+
+    ...typography.raw({ class: "label", size: "small" }),
+  },
+  variants: {
+    bottomMargin: {
+      no: {},
+      yes: {
+        marginBottom: "-12px",
+      },
+    },
+  },
+});
+
 export function MemberSidebar(props: Props) {
   return (
     <Switch>
@@ -334,61 +389,6 @@ export function GroupMemberSidebar(props: Props) {
     </Container>
   );
 }
-
-/**
- * Container styles
- */
-const Container = styled("div", {
-  base: {
-    paddingRight: "var(--gap-md)",
-    width: "var(--layout-width-channel-sidebar)",
-  },
-});
-
-/**
- * Category Title
- */
-const CategoryTitle = styled("div", {
-  base: {
-    padding: "28px 14px 0",
-    color: "var(--md-sys-color-on-surface)",
-    display: "flex",
-    alignItems: "center",
-    gap: "6px",
-
-    ...typography.raw({ class: "label", size: "small" }),
-  },
-});
-
-const RoleIcon = styled("img", {
-  base: {
-    width: "16px",
-    height: "16px",
-    borderRadius: "var(--borderRadius-sm)",
-    objectFit: "cover",
-  },
-});
-
-/**
- * Member title
- */
-const MemberTitle = styled("div", {
-  base: {
-    marginTop: "12px",
-    marginLeft: "14px",
-    color: "var(--md-sys-color-on-surface)",
-
-    ...typography.raw({ class: "label", size: "small" }),
-  },
-  variants: {
-    bottomMargin: {
-      no: {},
-      yes: {
-        marginBottom: "-12px",
-      },
-    },
-  },
-});
 
 /**
  * Styles required to correctly display name and status

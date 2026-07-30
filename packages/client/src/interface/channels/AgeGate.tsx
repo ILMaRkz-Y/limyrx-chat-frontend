@@ -18,6 +18,44 @@ type GeoBlock = {
 /**
  * Age gate filter for any content
  */
+const Base = styled("div", {
+  base: {
+    height: "100%",
+
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "var(--gap-lg)",
+    userSelect: "none",
+    overflowY: "auto",
+    color: "var(--md-sys-color-on-surface)",
+
+    "& svg": {
+      // TODO
+      fill: "orange",
+    },
+
+    gap: "var(--gap-md)",
+  },
+});
+
+const Confirmation = styled("label", {
+  base: {
+    display: "flex",
+    gap: "var(--gap-sm)",
+    alignItems: "center",
+  },
+});
+
+const Actions = styled("div", {
+  base: {
+    display: "flex",
+    marginTop: "var(--gap-lg)",
+    gap: "var(--gap-lg)",
+  },
+});
+
 export function AgeGate(props: {
   enabled: boolean;
   contentId: string;
@@ -124,41 +162,3 @@ export function AgeGate(props: {
     </Suspense>
   );
 }
-
-const Base = styled("div", {
-  base: {
-    height: "100%",
-
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "var(--gap-lg)",
-    userSelect: "none",
-    overflowY: "auto",
-    color: "var(--md-sys-color-on-surface)",
-
-    "& svg": {
-      // TODO
-      fill: "orange",
-    },
-
-    gap: "var(--gap-md)",
-  },
-});
-
-const Confirmation = styled("label", {
-  base: {
-    display: "flex",
-    gap: "var(--gap-sm)",
-    alignItems: "center",
-  },
-});
-
-const Actions = styled("div", {
-  base: {
-    display: "flex",
-    marginTop: "var(--gap-lg)",
-    gap: "var(--gap-lg)",
-  },
-});

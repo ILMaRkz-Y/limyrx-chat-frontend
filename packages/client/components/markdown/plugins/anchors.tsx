@@ -89,7 +89,7 @@ export function RenderAnchor(
     }
 
     // Remap discover links to native links
-    if (url.origin === "https://rvlt.gg" || url.origin === "https://stt.gg") {
+    if (url.origin === "https://rvlt.gg" || url.origin === "https://stt.gg" || url.origin === import.meta.env.VITE_API_URL || url.origin === location.origin) {
       if (/^\/[\w\d]+$/.test(url.pathname)) {
         url = new URL(`/invite${url.pathname}`, location.origin);
       } else if (url.pathname.startsWith("/discover")) {

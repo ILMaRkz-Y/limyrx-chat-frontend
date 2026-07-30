@@ -15,6 +15,12 @@ import { LAYOUT_SECTIONS } from "@revolt/state/stores/Layout";
  * correct side for toggling sidebar (if on desktop) and
  * the hamburger icon to open sidebar (if on mobile).
  */
+const container = css({
+  display: "flex",
+  cursor: "pointer",
+  alignItems: "center",
+});
+
 export function HeaderIcon(props: { children: JSX.Element }) {
   const state = useState();
   const { t } = useLingui();
@@ -62,9 +68,3 @@ export function HeaderIcon(props: { children: JSX.Element }) {
     </div>
   );
 }
-
-const container = css({
-  display: "flex",
-  cursor: "pointer",
-  alignItems: "center",
-});

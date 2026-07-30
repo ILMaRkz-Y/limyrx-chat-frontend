@@ -58,6 +58,50 @@ export function canIHasSidebar(ch: Channel) {
 /**
  * Channel component
  */
+/**
+ * Main content row layout
+ */
+const Content = styled("div", {
+  base: {
+    display: "flex",
+    flexDirection: "row",
+    flexGrow: 1,
+    minWidth: 0,
+    minHeight: 0,
+  },
+});
+
+/**
+ * Base styles
+ */
+const sidebar = cva({
+  base: {
+    flexShrink: 0,
+    width: "var(--layout-width-channel-sidebar)",
+    borderRadius: "var(--borderRadius-lg)",
+  },
+});
+
+/**
+ * Container styles
+ */
+const WideSidebarContainer = styled("div", {
+  base: {
+    paddingRight: "var(--gap-md)",
+    width: "360px",
+  },
+});
+
+/**
+ * Sidebar title
+ */
+const SidebarTitle = styled("div", {
+  base: {
+    padding: "var(--gap-md)",
+    color: "var(--md-sys-color-on-surface)",
+  },
+});
+
 export function TextChannel(props: ChannelPageProps) {
   const state = useState();
   const client = useClient();
@@ -287,49 +331,4 @@ export function TextChannel(props: ChannelPageProps) {
   );
 }
 
-/**
- * Main content row layout
- */
-const Content = styled("div", {
-  base: {
-    display: "flex",
-    flexDirection: "row",
-    flexGrow: 1,
-    minWidth: 0,
-    minHeight: 0,
-  },
-});
 
-/**
- * Base styles
- */
-const sidebar = cva({
-  base: {
-    flexShrink: 0,
-    width: "var(--layout-width-channel-sidebar)",
-    // margin: "var(--gap-md)",
-    borderRadius: "var(--borderRadius-lg)",
-    // color: "var(--colours-sidebar-channels-foreground)",
-    // background: "var(--colours-sidebar-channels-background)",
-  },
-});
-
-/**
- * Container styles
- */
-const WideSidebarContainer = styled("div", {
-  base: {
-    paddingRight: "var(--gap-md)",
-    width: "360px",
-  },
-});
-
-/**
- * Sidebar title
- */
-const SidebarTitle = styled("div", {
-  base: {
-    padding: "var(--gap-md)",
-    color: "var(--md-sys-color-on-surface)",
-  },
-});

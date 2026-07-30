@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd ../.. && pnpm --filter '@lingui-solid/babel-plugin-*' --filter stoat.js --filter solid-livekit-components run build && cd packages/client && pnpm build",
+  "outputDirectory": "dist",
+  "installCommand": "cd ../.. && pnpm install",
+  "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }]
+}
