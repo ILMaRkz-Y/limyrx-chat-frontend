@@ -1,4 +1,4 @@
-import { JSXElement, Show } from "solid-js";
+import { JSXElement, Show, createUniqueId } from "solid-js";
 
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
@@ -67,23 +67,6 @@ export type Props = {
 };
 
 /**
- * Avatar image
- */
-const Image = styled("img", {
-  base: {
-    width: "100%",
-    height: "100%",
-    display: "block",
-    objectFit: "cover",
-    borderRadius: "var(--borderRadius-circle)",
-    backgroundColor: "var(--md-sys-color-surface-container-low)",
-    transform: "translateZ(0)",
-    isolation: "isolate",
-    backfaceVisibility: "hidden",
-  },
-});
-
-/**
  * Text fallback container
  */
 const FallbackBase = styled("div", {
@@ -120,8 +103,16 @@ const FallbackBase = styled("div", {
  * Generic Avatar component
  *
  * Partially inspired by Adw.Avatar API, we allow users to specify a fallback component (usually just text) to display in case the URL is invalid.
+ *
+ * NOTE: We deliberately render the image as a native SVG <image> element (clipped by
+ * an SVG <clipPath>) instead of an <img> inside a <foreignObject>. Chrome fails to
+ * paint <img> / background-image content inside <foreignObject> (GPU compositing bug),
+ * leaving avatars invisible. SVG <image> bypasses <foreignObject> entirely.
  */
 export function Avatar(props: Props) {
+  // Unique id so the clip path never collides between avatars
+  const clipId = createUniqueId();
+
   return (
     <ParentBase
       // @ts-expect-error not typed for some reason
@@ -134,6 +125,18 @@ export function Avatar(props: Props) {
       interactive={props.interactive}
       onClick={props.onClick}
     >
+      <defs>
+        <clipPath id={clipId}>
+          {props.shape === "square" ? (
+            <rect x="0" y="0" width="32" height="32" />
+          ) : props.shape === "rounded-square" ? (
+            <rect x="0" y="0" width="32" height="32" rx="12" />
+          ) : (
+            <circle cx="16" cy="16" r="16" />
+          )}
+        </clipPath>
+      </defs>
+
       <g
         mask={
           props.holepunch && props.holepunch !== "none"
@@ -141,22 +144,18 @@ export function Avatar(props: Props) {
             : undefined
         }
       >
-        <foreignObject
-          x="0"
-          y="0"
-          width="32"
-          height="32"
-          style="transform: translateZ(0); will-change: transform; isolation: isolate;"
-          class={css({ transition: "var(--transitions-fast) filter" })}
-        >
-          <Shape shape={props.shape}>
-            <Show when={props.interactive}>
-              <Ripple />
-            </Show>
-            <Show
-              when={props.src}
-              keyed
-              fallback={
+        <Show
+          when={props.src}
+          keyed
+          fallback={
+            <foreignObject
+              x="0"
+              y="0"
+              width="32"
+              height="32"
+              class={css({ transition: "var(--transitions-fast) filter" })}
+            >
+              <Shape shape={props.shape}>
                 <FallbackBase contrast={props.primaryContrast}>
                   {typeof props.fallback === "string" ? (
                     <Initials input={props.fallback} maxLength={2} />
@@ -164,12 +163,41 @@ export function Avatar(props: Props) {
                     props.fallback
                   )}
                 </FallbackBase>
-              }
-            >
-              <Image src={props.src} />
-            </Show>
-          </Shape>
-        </foreignObject>
+              </Shape>
+            </foreignObject>
+          }
+        >
+          {/* Native SVG image path — no foreignObject, no Chrome GPU compositing bug */}
+          <g
+            style={{ "clip-path": `url(#${clipId})` }}
+            class={css({ transition: "var(--transitions-fast) filter" })}
+          >
+            <rect
+              x="0"
+              y="0"
+              width="32"
+              height="32"
+              fill="var(--md-sys-color-surface-container-low)"
+            />
+            <image
+              href={props.src}
+              x="0"
+              y="0"
+              width="32"
+              height="32"
+              preserveAspectRatio="xMidYMid slice"
+            />
+          </g>
+        </Show>
+
+        {/* Ripple is an HTML web component, so it needs its own transparent overlay */}
+        <Show when={props.interactive}>
+          <foreignObject x="0" y="0" width="32" height="32">
+            <Shape shape={props.shape}>
+              <Ripple />
+            </Shape>
+          </foreignObject>
+        </Show>
       </g>
       {props.overlay}
     </ParentBase>
@@ -184,8 +212,6 @@ const ParentBase = styled("svg", {
     flexShrink: 0,
     userSelect: "none",
     cursor: "inherit",
-    transform: "translateZ(0)",
-    willChange: "transform",
   },
   variants: {
     interactive: {
