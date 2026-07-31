@@ -37,7 +37,7 @@ const GIFBOX_EXPLAINER_DISMISS_KEY = "gifbox-explainer-dismissed";
 /**
  * Link to more information about Gifbox
  */
-const GIFBOX_LEARN_MORE_URL = "https://stoat.gg/meet-gifbox";
+const GIFBOX_LEARN_MORE_URL = "https://limyrx.xyz/meet-gifbox";
 
 /**
  * Link to upload GIFs to Gifbox
@@ -144,7 +144,7 @@ function GifboxExplainer() {
         <ExplainerBody>
           <Trans>
             Gifbox is our own GIF service, so you can keep sharing GIFs right
-            here on Stoat.
+            here on Limyrx.
           </Trans>
         </ExplainerBody>
         <ExplainerActions>

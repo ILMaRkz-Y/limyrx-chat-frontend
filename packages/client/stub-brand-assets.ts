@@ -1,6 +1,6 @@
 /**
  * Vite plugin to stub missing brand assets from the private git repo.
- * These assets come from git.stoatinternal.com/brand/assets.git which is not accessible.
+ * These assets come from a private brand-assets repo which is not accessible.
  * This plugin intercepts imports from public/assets/** and returns appropriate stubs.
  */
 import { existsSync, readFileSync } from "node:fs";

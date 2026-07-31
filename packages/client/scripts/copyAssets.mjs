@@ -6,7 +6,7 @@ import { resolve } from "node:path";
 
 const publicFolder = resolve("public");
 const path = resolve("public", "assets");
-const revoltAssets = resolve("assets");
+const brandAssets = resolve("assets");
 const fallbackAssets = resolve("scripts", "assets_fallback");
 
 /**
@@ -14,12 +14,12 @@ const fallbackAssets = resolve("scripts", "assets_fallback");
  */
 async function createSymlink() {
   try {
-    await lstat(revoltAssets);
-    if ((await readdir(revoltAssets)).length === 0) throw "Empty Directory";
-    await lnk(resolve(revoltAssets), resolve(publicFolder), {
+    await lstat(brandAssets);
+    if ((await readdir(brandAssets)).length === 0) throw "Empty Directory";
+    await lnk(resolve(brandAssets), resolve(publicFolder), {
       rename: "assets",
     });
-    console.info(`Configured Stoat assets.`);
+    console.info(`Configured Limyrx assets.`);
   } catch (error) {
     if (error === "Empty Directory" || error.code === "ENOENT") {
       await lnk(resolve(fallbackAssets), resolve(publicFolder), {

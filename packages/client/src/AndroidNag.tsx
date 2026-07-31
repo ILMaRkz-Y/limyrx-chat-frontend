@@ -11,7 +11,7 @@ import { styled } from "styled-system/jsx";
 const ANDROID_NAG_DISMISS_KEY = "android-nag-dismissed";
 
 /**
- * Google Play listing for the Stoat app
+ * Google Play listing for the Limyrx app
  */
 const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=chat.revolt";

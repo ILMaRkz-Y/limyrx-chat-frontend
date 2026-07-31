@@ -106,6 +106,8 @@ function mapMailProvider(email?: string): [string, string] | undefined {
     case "revolt.wtf":
     case "stoat.chat":
       return ["Stoat Mail", "https://webmail.revolt.wtf"];
+    case "limyrx.xyz":
+      return ["Limyrx Mail", "https://webmail.limyrx.xyz"];
     default:
       return [domain, `https://${domain}`];
   }

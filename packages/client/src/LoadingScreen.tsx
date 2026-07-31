@@ -5,7 +5,7 @@ import { styled } from "styled-system/jsx";
 import { Button, CircularProgress, Symbol, Text } from "@revolt/ui";
 
 /**
- * Stoat status page URL
+ * Limyrx status page URL
  */
 const STATUS_PAGE_URL = "#";
 
@@ -50,8 +50,8 @@ const isEligibleOrigin = () => {
   const { hostname } = window.location;
   return (
     hostname === "localhost" || // (for testing)
-    hostname.endsWith(".stoat.chat") ||
-    hostname === "stoat.chat"
+    hostname.endsWith(".limyrx.xyz") ||
+    hostname === "limyrx.xyz"
   );
 };
 

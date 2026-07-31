@@ -8,7 +8,7 @@ interface ChannelPartial {
   name?: string;
 }
 
-interface StoatPushNotification {
+interface LimyrxPushNotification {
   title?: string;
   author?: string;
   body: string;
@@ -32,7 +32,7 @@ self.addEventListener("push", (event) => {
   if (!event.data) return;
   const payload = event.data.text();
 
-  const notification: StoatPushNotification = JSON.parse(payload);
+  const notification: LimyrxPushNotification = JSON.parse(payload);
 
   if (!notification.title) {
     if (notification.channel) {

@@ -13,9 +13,9 @@ export default {
    */
   DEFAULT_API_URL,
   /**
-   * Whether this is Stoat
+   * Whether this is Limyrx
    */
-  IS_STOAT: false,
+  IS_LIMYRX: false,
   /**
    * What WS server to connect to by default.
    */

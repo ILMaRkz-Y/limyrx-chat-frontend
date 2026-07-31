@@ -98,7 +98,7 @@ export function HomePage() {
   const navigate = useNavigate();
   const client = useClient();
 
-  // check if we're stoat.chat; if so, check if the user is in the Lounge
+  // check if we're limyrx.xyz; if so, check if the user is in the Lounge
   const showLoungeButton = false;
   const isInLounge =
     client()!.servers.get("01F7ZSBSFHQ8TA81725KQCSDDP") !== undefined;
@@ -200,7 +200,7 @@ export function HomePage() {
             </CategoryButton>
           </SeparatedColumn>
           <SeparatedColumn>
-            <Show when={CONFIGURATION.IS_STOAT}>
+            <Show when={CONFIGURATION.IS_LIMYRX}>
               <CategoryButton
                 onClick={() => navigate("/")}
                 description={

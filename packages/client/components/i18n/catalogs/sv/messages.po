@@ -1227,8 +1227,8 @@ msgid "Discord RPC"
 msgstr "Discord-RPC"
 
 #: src/interface/Home.tsx
-msgid "Discover Stoat"
-msgstr "Utforska Stoat"
+msgid "Discover Limyrx"
+msgstr "Utforska Limyrx"
 
 #: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
 msgid "Display & Text"
@@ -1270,12 +1270,12 @@ msgid "Donate"
 msgstr "Donera"
 
 #: src/interface/Home.tsx
-msgid "Donate to Stoat"
-msgstr "Donera till Stoat"
+msgid "Donate to Limyrx"
+msgstr "Donera till Limyrx"
 
 #: components/ui/components/features/profiles/ProfileBadges.tsx
-msgid "Donated to Stoat"
-msgstr "Donerat till Stoat"
+msgid "Donated to Limyrx"
+msgstr "Donerat till Limyrx"
 
 #: components/modal/modals/MFARecovery.tsx
 msgid "Done"
@@ -1442,7 +1442,7 @@ msgid "Extreme violence, gore or animal cruelty"
 msgstr "Extremt våld, blod eller djurplågeri"
 
 #: components/client/NotificationsController.ts
-msgid "Failed to enable notifications. Stoat does not have notification permission."
+msgid "Failed to enable notifications. Limyrx does not have notification permission."
 msgstr ""
 
 #: components/client/NotificationsController.ts
@@ -1540,7 +1540,7 @@ msgid "Get it on Google Play"
 msgstr ""
 
 #: components/ui/components/features/messaging/composition/picker/GifPicker.tsx
-msgid "Gifbox is our own GIF service, so you can keep sharing GIFs right here on Stoat."
+msgid "Gifbox is our own GIF service, so you can keep sharing GIFs right here on Limyrx."
 msgstr ""
 
 #: components/ui/components/features/messaging/composition/picker/GifPicker.tsx
@@ -1548,8 +1548,8 @@ msgid "GIFs are now powered by Gifbox"
 msgstr ""
 
 #: src/interface/Home.tsx
-msgid "Give feedback on Stoat"
-msgstr "Ge feedback om Stoat"
+msgid "Give feedback on Limyrx"
+msgstr "Ge feedback om Limyrx"
 
 #: components/modal/modals/ReportContent.tsx
 msgid "Give us some detail"
@@ -1574,8 +1574,8 @@ msgstr "Gå till kontoinställningar för att ändra ditt användarnamn"
 
 #: src/interface/Home.tsx
 #: components/app/interface/settings/user/Feedback.tsx
-msgid "Go to the Stoat Lounge"
-msgstr "Besök Stoat Lounge"
+msgid "Go to the Limyrx Lounge"
+msgstr "Besök Limyrx Lounge"
 
 #~ msgid "Go to the testers server"
 #~ msgstr "Gå till vår testserver"
@@ -1628,8 +1628,8 @@ msgid "Help contribute to an existing or new language"
 msgstr "Bidra till ett befintligt eller nytt språk"
 
 #: components/ui/components/features/profiles/ProfileBadges.tsx
-msgid "Helped translate Stoat"
-msgstr "Hjälpte till att översätta Stoat"
+msgid "Helped translate Limyrx"
+msgstr "Hjälpte till att översätta Limyrx"
 
 #. placeholder {0}: link()
 #: components/modal/modals/CreateInvite.tsx
@@ -1681,12 +1681,12 @@ msgid "Impersonation"
 msgstr "Identitetsstöld"
 
 #: src/AndroidNag.tsx
-msgid "In the meantime, install Stoat from Google Play for a faster, smoother experience designed for Android."
+msgid "In the meantime, install Limyrx from Google Play for a faster, smoother experience designed for Android."
 msgstr ""
 
 #: components/app/interface/settings/user/Native.tsx
-msgid "Instead of closing, Stoat will hide in your tray."
-msgstr "Istället för att stängas kommer Stoat att gömma sig i systemfältet."
+msgid "Instead of closing, Limyrx will hide in your tray."
+msgstr "Istället för att stängas kommer Limyrx att gömma sig i systemfältet."
 
 #: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
 msgid "Interface Font"
@@ -1751,8 +1751,8 @@ msgstr "Gå med i server"
 
 #: src/interface/Home.tsx
 #: components/app/interface/settings/user/Feedback.tsx
-msgid "Join the Stoat Lounge"
-msgstr "Besök Stoat Lounge"
+msgid "Join the Limyrx Lounge"
+msgstr "Besök Limyrx Lounge"
 
 #: src/interface/channels/ChannelHeader.tsx
 #: components/ui/components/features/voice/callCard/VoiceCallCardPreview.tsx
@@ -1810,16 +1810,16 @@ msgid "Latest"
 msgstr "Senaste"
 
 #: components/app/interface/settings/user/Native.tsx
-msgid "Launch Stoat when you log into your computer."
-msgstr "Öppna Stoat när du startar din dator."
+msgid "Launch Limyrx when you log into your computer."
+msgstr "Öppna Limyrx när du startar din dator."
 
 #: components/ui/components/features/messaging/composition/picker/GifPicker.tsx
 msgid "Learn more"
 msgstr ""
 
 #: components/app/interface/settings/user/bots/MyBots.tsx
-msgid "Learn more about how to create bots on Stoat."
-msgstr "Läs mer om hur man skapar botar på Stoat."
+msgid "Learn more about how to create bots on Limyrx."
+msgstr "Läs mer om hur man skapar botar på Limyrx."
 
 #: components/modal/modals/LeaveServer.tsx
 #: components/modal/modals/DeleteChannel.tsx
@@ -1842,8 +1842,8 @@ msgid "Leave server"
 msgstr "Lämna server"
 
 #: components/app/interface/settings/user/Native.tsx
-msgid "Let Stoat use its own custom titlebar."
-msgstr "Låt Stoat använda sin egen anpassade titelrad."
+msgid "Let Limyrx use its own custom titlebar."
+msgstr "Låt Limyrx använda sin egen anpassade titelrad."
 
 #: src/interface/Home.tsx
 msgid "Let us know how we can improve our app by giving us feedback."
@@ -2144,8 +2144,8 @@ msgid "New Password"
 msgstr "Nytt lösenord"
 
 #: components/app/interface/channels/text/Message.tsx
-msgid "New to Stoat"
-msgstr "Nytt i Stoat"
+msgid "New to Limyrx"
+msgstr "Nytt i Limyrx"
 
 #: components/app/interface/channels/text/Message.tsx
 msgid "New to the server"
@@ -2539,8 +2539,8 @@ msgid "Rename Session"
 msgstr "Ändra namn på session"
 
 #: components/app/interface/settings/user/Native.tsx
-msgid "Rep Stoat using Discord rich presence."
-msgstr "Rep Stoat med Discord-rik närvaro."
+msgid "Rep Limyrx using Discord rich presence."
+msgstr "Rep Limyrx med Discord-rik närvaro."
 
 #: components/app/menus/MessageContextMenu.tsx
 msgid "Reply"
@@ -2861,8 +2861,8 @@ msgid "Show send message button"
 msgstr "Visa knapp för att skicka meddelande"
 
 #: components/auth/src/flows/FlowLogin.tsx
-msgid "Sign into Stoat"
-msgstr "Logga in i Stoat"
+msgid "Sign into Limyrx"
+msgstr "Logga in i Limyrx"
 
 #: components/auth/src/flows/FlowHome.tsx
 msgid "Sign Up"
@@ -2944,31 +2944,31 @@ msgstr "Starta med dator"
 msgid "Status"
 msgstr "Status"
 
-#~ msgid "Stoat Desktop"
+#~ msgid "Limyrx Desktop"
 #~ msgstr ""
 
 #: components/ui/components/features/profiles/ProfileBadges.tsx
-msgid "Stoat Developer"
-msgstr "Utvecklare av Stoat"
+msgid "Limyrx Developer"
+msgstr "Utvecklare av Limyrx"
 
 #: components/app/interface/settings/user/Native.tsx
-msgid "Stoat for Desktop"
-msgstr "Stoat för skrivbord"
+msgid "Limyrx for Desktop"
+msgstr "Limyrx för skrivbord"
 
 #: components/ui/components/features/profiles/ProfileBadges.tsx
-msgid "Stoat Founder"
-msgstr "Skapare av Stoat"
+msgid "Limyrx Founder"
+msgstr "Skapare av Limyrx"
 
 #: components/auth/src/flows/FlowHome.tsx
-msgid "Stoat is one of the best ways to stay connected with your friends and community, anywhere, anytime."
-msgstr "Stoat är ett av de bästa sätten att hålla kontakten med dina vänner och din community, var som helst, när som helst."
+msgid "Limyrx is one of the best ways to stay connected with your friends and community, anywhere, anytime."
+msgstr "Limyrx är ett av de bästa sätten att hålla kontakten med dina vänner och din community, var som helst, när som helst."
 
 #: components/app/interface/settings/user/Native.tsx
-msgid "Stoat will start in the system tray."
+msgid "Limyrx will start in the system tray."
 msgstr ""
 
 #: src/AndroidNag.tsx
-msgid "Stoat works best as an app"
+msgid "Limyrx works best as an app"
 msgstr ""
 
 #: components/ui/components/features/voice/callCard/VoiceCallCardActions.tsx
@@ -3004,8 +3004,8 @@ msgid "Subscriptions"
 msgstr "Prenumerationer"
 
 #: components/app/interface/settings/user/Feedback.tsx
-msgid "Suggest new Stoat features on GitHub discussions."
-msgstr "Föreslå nya Stoat-funktioner på GitHub."
+msgid "Suggest new Limyrx features on GitHub discussions."
+msgstr "Föreslå nya Limyrx-funktioner på GitHub."
 
 #: src/interface/Home.tsx
 msgid "Support the project by donating - thank you!"
@@ -3211,8 +3211,8 @@ msgstr "Avblockera användare"
 
 #. placeholder {0}: err.type
 #: components/i18n/errors.tsx
-msgid "Uncaught Stoat error: {0}"
-msgstr "Oupptäckt fel i Stoat: {0}"
+msgid "Uncaught Limyrx error: {0}"
+msgstr "Oupptäckt fel i Limyrx: {0}"
 
 #: components/ui/components/features/voice/callCard/VoiceCallCardActions.tsx
 #: components/app/interface/settings/user/notifications/Sounds.tsx
@@ -3640,8 +3640,8 @@ msgid "You've been invited to join this server.<0/>Would you like to join?"
 msgstr "Du har blivit inbjuden att gå med i den här servern.<0/>Vill du gå med?"
 
 #: components/modal/modals/SignedOut.tsx
-msgid "You've been signed out of Stoat!"
-msgstr "Du har blivit utloggad från Stoat!"
+msgid "You've been signed out of Limyrx!"
+msgstr "Du har blivit utloggad från Limyrx!"
 
 #: components/i18n/errors.tsx
 msgid "You've reached your personal bot limit."

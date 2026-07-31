@@ -3,4 +3,4 @@ export {
   createMaterialColourVariables,
   createMduiColourTriplets,
 } from "./materialTheme";
-export { createLimyrxWebVariables } from "./stoatWebTheme";
+export { createLimyrxWebVariables } from "./limyrxWebTheme";
